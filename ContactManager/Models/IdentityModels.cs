@@ -31,5 +31,7 @@ namespace ContactManager.Models
         }
 
         public System.Data.Entity.DbSet<ContactManager.Models.Contact> Contacts { get; set; }
+
+        public System.Data.Entity.DbSet<ContactManager.Models.Book> Books { get; set; }
     }
 }

@@ -165,6 +165,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CmController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -175,8 +176,13 @@
     <Compile Include="Migrations\201504070323076_Initial.Designer.cs">
       <DependentUpon>201504070323076_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201504071527271_Books.cs" />
+    <Compile Include="Migrations\201504071527271_Books.Designer.cs">
+      <DependentUpon>201504071527271_Books.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BookModels.cs" />
     <Compile Include="Models\Contacts.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -245,6 +251,11 @@
     <Content Include="Views\Cm\Details.cshtml" />
     <Content Include="Views\Cm\Edit.cshtml" />
     <Content Include="Views\Cm\Index.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Delete.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -259,6 +270,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201504070323076_Initial.resx">
       <DependentUpon>201504070323076_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201504071527271_Books.resx">
+      <DependentUpon>201504071527271_Books.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
