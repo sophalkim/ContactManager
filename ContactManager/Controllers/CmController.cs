@@ -10,24 +10,24 @@ using ContactManager.Models;
 
 namespace ContactManager.Controllers
 {
-    public class ContactsController : Controller
+    public class CmController : Controller
     {
-        private ContactDBContext db = new ContactDBContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Contacts
+        // GET: Cm
         public ActionResult Index()
         {
-            return View(db.Movies.ToList());
+            return View(db.Contacts.ToList());
         }
 
-        // GET: Contacts/Details/5
+        // GET: Cm/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Movies.Find(id);
+            Contact contact = db.Contacts.Find(id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -35,22 +35,22 @@ namespace ContactManager.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Create
+        // GET: Cm/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Contacts/Create
+        // POST: Cm/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Address,City,State,Zip,Email")] Contact contact)
+        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
         {
             if (ModelState.IsValid)
             {
-                db.Movies.Add(contact);
+                db.Contacts.Add(contact);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -58,14 +58,14 @@ namespace ContactManager.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Edit/5
+        // GET: Cm/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Movies.Find(id);
+            Contact contact = db.Contacts.Find(id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -73,12 +73,12 @@ namespace ContactManager.Controllers
             return View(contact);
         }
 
-        // POST: Contacts/Edit/5
+        // POST: Cm/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Address,City,State,Zip,Email")] Contact contact)
+        public ActionResult Edit([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
         {
             if (ModelState.IsValid)
             {
@@ -89,14 +89,14 @@ namespace ContactManager.Controllers
             return View(contact);
         }
 
-        // GET: Contacts/Delete/5
+        // GET: Cm/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contact contact = db.Movies.Find(id);
+            Contact contact = db.Contacts.Find(id);
             if (contact == null)
             {
                 return HttpNotFound();
@@ -104,13 +104,13 @@ namespace ContactManager.Controllers
             return View(contact);
         }
 
-        // POST: Contacts/Delete/5
+        // POST: Cm/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Contact contact = db.Movies.Find(id);
-            db.Movies.Remove(contact);
+            Contact contact = db.Contacts.Find(id);
+            db.Contacts.Remove(contact);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
